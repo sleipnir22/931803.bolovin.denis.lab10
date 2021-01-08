@@ -1,0 +1,294 @@
+body{
+    overflow: hidden;
+    margin: 0;
+    height: 100vh;
+}
+.flex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+* {
+    user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+@keyframes upCurtain {
+    100%{
+        background-position: center bottom 5vh;
+    }
+}
+@keyframes downCurtain {
+    0%{
+        background-position: center bottom 5vh;
+    }
+}
+
+.curtain{
+    z-index: 50;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    background-image: url(1.jpg);
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: repeat-x;
+}
+.hoverable:hover{
+    animation-name: upCurtain;
+    animation-iteration-count: 1;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+}
+
+.hoverable{
+    animation-name: downCurtain;
+    animation-iteration-count: 1;
+    animation-duration: 0.2s;
+}
+
+@keyframes upped {
+    100%{
+        bottom: 100%;
+    }
+}
+
+.upped{
+    animation-name: upped, upCurtain;
+    animation-duration: 2s, 0.2s;
+    animation-iteration-count: 1, 1;
+    animation-fill-mode: forwards, forwards;
+}
+.lamp-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.lamp{
+    position: relative;
+    margin-top: 100px;
+}
+.lamp1 {
+    width: 300px;
+    height: 49px;
+    background: url(3.png) -0 -36.5px;
+    z-index: 3;
+    position: relative;
+    background-size: 300px;
+}
+.lamp2 {
+    width: 30px;
+    height: 160px;
+    background: url(3.png) 165px -85.5px;
+    position: absolute;
+    left: 135px;
+    z-index: 1;
+    background-size: 300px;
+}
+.lamp3 {
+    width: 30px;
+    height: 160px;
+    background: url(3.png) 195px -85.5px;
+    position: relative;
+    left: 105px;
+    top: 0;
+    z-index: 1;
+    background-size: 300px;
+}
+.lamp4 {
+    width: 300px;
+    height: 49.5px;
+    background: url(3.png) 0 -250.5px;
+    position: relative;
+    z-index: 1;
+    background-size: 300px;
+}
+.lamp5 {
+    width: 30px;
+    height: 40px;
+    background: url(3.png) 195px -85.5px;
+    position: absolute;
+    left: 105px;
+    z-index: 1;
+    background-size: 300px;
+}
+.lamp10 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 250px;
+    z-index: 3;
+}
+@keyframes lamp3-kf {
+    100%{
+        top: 20px;
+    }
+}
+@keyframes lamp3-kf-r {
+    0%{
+        top: 20px;
+    }
+}
+.lamp > .lamp3{
+    animation-name: lamp3-kf-r;
+    animation-iteration-count: 1;
+    animation-duration: 0.1s;
+}
+
+.onmousedown > .lamp3{
+    animation-name: lamp3-kf;
+    animation-iteration-count: 1;
+    animation-duration: 0.1s;
+    animation-fill-mode: forwards;
+}
+.black{
+    position: fixed;
+    top: 0;
+    z-index: -100;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+.triangle {
+    align-self: center;
+    position: relative;
+    width: 40px;
+    height: 0;
+    border: 340px solid rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(255, 231, 0, 0.5);
+    transform: scaleY(2.3);
+    top: -590px;
+    left: 1px;
+    z-index: 2;
+}
+.wizard {
+    height: 230px;
+    width: 280px;
+    background-image: url(2.jpg);
+    position: relative;
+    background-size: contain;
+    z-index: 1;
+}
+.container {
+    bottom: 3vh;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    width: 50vh;
+    justify-content: space-between;
+}
+.magic-hat{
+    position: relative;
+}
+.magic-hat > .hat {
+    height: 160px;
+    width: 145px;
+    position: relative;
+    background-size: auto;
+}
+.magic-hat > .hat > div:first-child{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    transform: rotate(20deg);
+    background-image: url("hat.png");
+    background-size: cover;
+    z-index: 1;
+}
+.magic-hat > .hat > div:last-child{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    z-index: 3;
+}
+
+@keyframes animal-up {
+    100%{
+        top: -150px;
+    }
+}
+@keyframes animal-down {
+    0%{
+        top: -150px;
+    }
+}
+@keyframes animal-rot {
+    100%{
+        transform: rotate(1440deg);
+    }
+}
+@keyframes animal-derot {
+    0%{
+        transform: rotate(1440deg);
+    }
+}
+
+.magic-hat > .animal {
+    height: 70px;
+    width: 70px;
+    position: absolute;
+    top: 50px;
+    left: 35px;
+    background-size: auto;
+}
+
+.animal-anim-up{
+    animation-name: animal-up;
+    animation-fill-mode: forwards;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+}
+.animal-anim-down{
+    animation-name: animal-down;
+    animation-fill-mode: forwards;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+}
+
+.animal-anim-up > div:first-child{
+    animation-name: animal-rot;
+    animation-fill-mode: forwards;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+}
+.animal-anim-down > div:first-child{
+    animation-name: animal-derot;
+    animation-fill-mode: forwards;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+}
+
+.magic-hat > .animal > div:first-child{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: inherit;
+    transform: rotate(0deg);
+    height: inherit;
+    background-size: cover;
+    z-index: 0;
+}
+
+.magic-hat > .animal > div:last-child{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    z-index: 3;
+}
+.bunny > div:first-child{
+    background-image: url("animal1.png");
+}
+.bird > div:first-child{
+    background-image: url("animal2.png");
+}
